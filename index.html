@@ -102,15 +102,15 @@
             let name = document.getElementById("user_name").value;
             let email = document.getElementById("user_email").value;
             let phone = document.getElementById("user_phone").value;
-            if (name.length < 2) {
+            if (name.length < 5) {
                 document.getElementById("error").innerText = 'Name Error';
                 return;
             }
-            if (email.length < 7) {
+            if (email.length < 5) {
                 document.getElementById("error").innerText = 'Email Error';
                 return;
             }
-            if (phone.length < 8) {
+            if (phone.length < 5) {
                 document.getElementById("error").innerText = 'Phone Error';
                 return;
             }
