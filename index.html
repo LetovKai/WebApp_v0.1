@@ -104,15 +104,15 @@
             let phone = document.getElementById("user_phone").value
             if (name.length < 2) {
                 document.getElementById("error").innerText = 'Name Error';
-                return
+                return;
             }
             if (email.length < 7) {
                 document.getElementById("error").innerText = 'Email Error';
-                return
+                return;
             }
             if (phone.length < 8) {
                 document.getElementById("error").innerText = 'Phone Error';
-                return
+                return;
             }
             let data = {
                 name: name,
