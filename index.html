@@ -19,7 +19,7 @@
             background: var(--tg-theme-bg-color);
         }
 
-        main {
+        #main {
             width: 100%;
             padding: 20px;
             text-align: center;
@@ -52,6 +52,22 @@
         button:hover {
             background: var(--tg-theme-secondary-bg-color);
         }
+        #form {
+            display: none;
+            text-align: center;
+        }
+        input {
+            width: 90%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
+        input:focus {
+            border-color: #db5d5d;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +77,27 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit accumsan mi eu imperdiet. Quisque non augue in justo tincidunt porta. Maecenas in orci ullamcorper, lobortis ante non, rhoncus mi. Nunc quis blandit libero. Sed rhoncus nisi mauris, a malesuada orci semper at. Morbi ex risus, egestas vel pellentesque et, fermentum convallis orci. Phasellus blandit turpis a ligula commodo bibendum. Nulla luctus arcu et ante suscipit vulputate. Integer tristique dapibus turpis scelerisque lacinia. Praesent mauris neque, egestas ac posuere eu, pretium a quam. Maecenas tincidunt pharetra arcu nec placerat. Etiam non rhoncus mi, a bibendum magna. Duis a ultricies lorem, ut interdum dolor. Integer rhoncus pellentesque urna placerat sollicitudin. Suspendisse tristique iaculis bibendum. Aliquam odio quam, egestas non ultrices at, lacinia vitae velit.</p>
         <button id="buy">Buy it!</button>
     </div>
+    <form id="form">
+        <input type="text" placeholder="Name" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Phone" id="user_phone">
+        <button id="order">BUY!!!</button>
+    </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        });
+
+        order.addEventListener("click", () => {
+            tg.close();
+        })
+
+    </script>
 </body>
 </html>
