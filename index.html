@@ -3,6 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat;wght@200;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
+
+        main {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 70px;
+            margin: 30px auto;
+        }
+        p {
+            width: 350px;
+            margin: 0 auto;
+        }
+        button {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: var(--tg-theme-button-color);
+            background: var(--tg-theme-button-text-color);
+        }
+        button:hover {
+            background: var(--tg-theme-secondary-bg-color);
+        }
+    </style>
 </head>
 <body>
     <div id="main">
@@ -11,5 +61,6 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit accumsan mi eu imperdiet. Quisque non augue in justo tincidunt porta. Maecenas in orci ullamcorper, lobortis ante non, rhoncus mi. Nunc quis blandit libero. Sed rhoncus nisi mauris, a malesuada orci semper at. Morbi ex risus, egestas vel pellentesque et, fermentum convallis orci. Phasellus blandit turpis a ligula commodo bibendum. Nulla luctus arcu et ante suscipit vulputate. Integer tristique dapibus turpis scelerisque lacinia. Praesent mauris neque, egestas ac posuere eu, pretium a quam. Maecenas tincidunt pharetra arcu nec placerat. Etiam non rhoncus mi, a bibendum magna. Duis a ultricies lorem, ut interdum dolor. Integer rhoncus pellentesque urna placerat sollicitudin. Suspendisse tristique iaculis bibendum. Aliquam odio quam, egestas non ultrices at, lacinia vitae velit.</p>
         <button id="buy">Buy it!</button>
     </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
