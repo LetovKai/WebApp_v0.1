@@ -75,6 +75,7 @@
         <h1>Online shop</h1>
         <img src="1.jpg">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit accumsan mi eu imperdiet. Quisque non augue in justo tincidunt porta. Maecenas in orci ullamcorper, lobortis ante non, rhoncus mi. Nunc quis blandit libero. Sed rhoncus nisi mauris, a malesuada orci semper at. Morbi ex risus, egestas vel pellentesque et, fermentum convallis orci. Phasellus blandit turpis a ligula commodo bibendum. Nulla luctus arcu et ante suscipit vulputate. Integer tristique dapibus turpis scelerisque lacinia. Praesent mauris neque, egestas ac posuere eu, pretium a quam. Maecenas tincidunt pharetra arcu nec placerat. Etiam non rhoncus mi, a bibendum magna. Duis a ultricies lorem, ut interdum dolor. Integer rhoncus pellentesque urna placerat sollicitudin. Suspendisse tristique iaculis bibendum. Aliquam odio quam, egestas non ultrices at, lacinia vitae velit.</p>
+        <div id="error"></div>
         <button id="buy">Buy it!</button>
     </div>
     <form id="form">
@@ -88,6 +89,8 @@
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy");
         let order = document.getElementById("order");
+        tg.expand();
+
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
@@ -95,9 +98,30 @@
         });
 
         order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let name = document.getElementById("user_name").value
+            let email = document.getElementById("user_email").value
+            let phone = document.getElementById("user_phone").value
+            if (name.length < 2) {
+                document.getElementById("error").innerText = 'Name Error';
+                return
+            }
+            if (email.length < 7) {
+                document.getElementById("error").innerText = 'Email Error';
+                return
+            }
+            if (phone.length < 8) {
+                document.getElementById("error").innerText = 'Phone Error';
+                return
+            }
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+            tg.sendData(JSON.stringify(data));
             tg.close();
-        })
-
+        });
     </script>
 </body>
 </html>
